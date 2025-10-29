@@ -34,6 +34,7 @@ cd generative_view_stitching
 a) Create conda environment from an environment.yml. This option ensures maximum reproducibility by encoding both conda and pip dependencies, both is overfit to our source machine's platform settings (Ubuntu 22.04.5, NVIDIA Driver Version 545.23.08, CUDA Version 12.3).
 ```bash
 conda env create -f environment.yml
+conda activate gvs
 ```
 
 b) Create a conda environment and install dependencies with pip. This option better adapts to the user's machine by encoding only pip dependencies but may be less reproducible.
@@ -63,7 +64,7 @@ We use Weights & Biases for logging. [Sign up](https://wandb.ai/login?signup=tru
 #### 5. Download Benchmark
 Download [our benchmark camera trajectories](https://mitprod-my.sharepoint.com/:u:/g/personal/ndsong_mit_edu/EVTnBi6fU81BrPFN2Xa2PioBePa0XNXxbELyYnJCYrNrRg?e=tqllPV) and uncompress them in `generative_view_stitching/data`:
 ```
-cd generative_view_stitching/data
+cd data
 tar -xzvf benchmark.tar.gz
 ```
 
