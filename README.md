@@ -31,13 +31,13 @@ cd generative_view_stitching
 ```
 
 #### 2. Build conda environment via one of two ways:
-a) Create conda environment from an environment.yml. This option ensures maximum reproducibility by encoding both conda and pip dependencies, both is overfit to our source machine's platform settings (Ubuntu 22.04.5, NVIDIA Driver Version 545.23.08, CUDA Version 12.3).
+a) Create a conda environment based on an environment definition file. This option ensures maximum reproducibility by encoding both conda and pip dependencies but is overfit to our source machine's platform settings (Ubuntu 22.04.5, NVIDIA Driver Version 545.23.08, CUDA Version 12.3).
 ```bash
 conda env create -f environment.yml
 conda activate gvs
 ```
 
-b) Create a conda environment and install dependencies with pip. This option better adapts to the user's machine by encoding only pip dependencies but may be less reproducible.
+b) Create a new conda environment and install dependencies with pip. This option better adapts to the user's machine by encoding only pip dependencies but may be less reproducible.
 ```bash
 conda create python=3.10 -n gvs
 conda activate gvs
@@ -62,10 +62,9 @@ cd ../../
 We use Weights & Biases for logging. [Sign up](https://wandb.ai/login?signup=true) if you don't have an account, and *modify `wandb.entity` in `config.yaml` to your user/organization name*.
 
 #### 5. Download Benchmark
-Download [our benchmark camera trajectories](https://mitprod-my.sharepoint.com/:u:/g/personal/ndsong_mit_edu/EVTnBi6fU81BrPFN2Xa2PioBePa0XNXxbELyYnJCYrNrRg?e=tqllPV) and uncompress them in `generative_view_stitching/data`:
+Download and uncompress our benchmark camera trajectories with the following command (takes ~3 minutes):
 ```
-cd data
-tar -xzvf benchmark.tar.gz
+sh get_benchmark.sh
 ```
 
 ### Generating Stitched Videos with Pretrained DFoT Models
