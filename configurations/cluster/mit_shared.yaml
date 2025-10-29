@@ -1,0 +1,11 @@
+
+defaults:
+  - mit_vision
+
+params:
+  partition: csail-shared-h200
+  qos: shared-if-available
+  num_gpus: 8
+  memory: 256G
+  num_cpus: 128
+  time: "24:0:0"

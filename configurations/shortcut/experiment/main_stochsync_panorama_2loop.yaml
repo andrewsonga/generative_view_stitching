@@ -1,0 +1,18 @@
+name: main_stochsync_panorama_2loop
+
+experiment:
+  tasks: [validation]
+  validation:
+    batch_size: 4
+
+dataset:
+  frame_skip: 1
+  n_frames: 48
+  num_eval_videos: 40
+
+algorithm:  
+  loop_closure:
+    enabled: true
+  tasks:
+    prediction:
+      two_loops: true

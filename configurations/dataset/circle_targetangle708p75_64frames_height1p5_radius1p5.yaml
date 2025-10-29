@@ -1,0 +1,3 @@
+defaults:
+- realestate10k
+save_dir: data/circle_targetangle708p75_64frames_height1p5_radius1p5

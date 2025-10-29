@@ -1,0 +1,22 @@
+defaults:
+  - base_video
+
+# Mixed video dataset configuration
+_name: mixed_dataset  # This determines which dataset class to use
+name: mixed_dataset   # This is needed for interpolation
+
+# Base configuration - common parameters for all constituent datasets
+save_dir: data/mixed
+resolution: 256
+max_frames: 8
+context_length: 4
+frame_skip: 10
+external_cond_dim: 16
+data_mean: [[[0.577]], [[0.517]], [[0.461]]]
+data_std: [[[0.249]], [[0.249]], [[0.268]]]
+filter_min_len: null
+num_eval_videos: 1024
+subdataset_size: ???
+maximize_training_data: False
+
+datasets: ???

@@ -1,0 +1,11 @@
+name: limitation_fullsequence_diffusion_forward_orbit_backward_loop_closing_window
+
+experiment:
+  tasks: [validation]
+  validation:
+    batch_size: 1
+
+dataset:
+  frame_skip: 1
+  n_frames: 8
+  num_eval_videos: 10

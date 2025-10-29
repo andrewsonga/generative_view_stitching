@@ -1,0 +1,3 @@
+defaults:
+- realestate10k
+save_dir: data/penrose_staircase_nframes104_stepsize0p25_incline30_sigma1_differentviewingangle

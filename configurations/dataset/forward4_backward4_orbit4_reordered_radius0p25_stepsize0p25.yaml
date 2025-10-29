@@ -1,0 +1,3 @@
+defaults:
+- realestate10k
+save_dir: data/forward4_backward4_orbit4_reordered_radius0p25_stepsize0p25

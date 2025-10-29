@@ -1,0 +1,11 @@
+name: main_stochsync_straight_line
+
+experiment:
+  tasks: [validation]
+  validation:
+    batch_size: 4
+
+dataset:
+  frame_skip: 5
+  n_frames: 48
+  num_eval_videos: 40

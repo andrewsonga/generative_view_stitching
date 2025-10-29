@@ -1,0 +1,3 @@
+defaults:
+- realestate10k
+save_dir: data/circuit_staircase_nframes112_stepsize0p35_incline30_sigma1_differentviewingangle

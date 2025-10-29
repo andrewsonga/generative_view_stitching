@@ -1,0 +1,11 @@
+name: application_indefinite_staircase
+
+experiment:
+  tasks: [validation]
+  validation:
+    batch_size: 1
+
+dataset:
+  frame_skip: 1
+  n_frames: 1080
+  num_eval_videos: 10

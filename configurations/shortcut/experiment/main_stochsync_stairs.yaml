@@ -1,0 +1,11 @@
+name: main_stochsync_stairs
+
+experiment:
+  tasks: [validation]
+  validation:
+    batch_size: 4
+
+dataset:
+  frame_skip: 1
+  n_frames: 24
+  num_eval_videos: 40

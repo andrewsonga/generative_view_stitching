@@ -1,0 +1,3 @@
+defaults:
+- realestate10k
+save_dir: data/up_the_stairs_inclinationangle25_stepsize0p5_sigma0p5_height0_diffviewingangle

@@ -1,0 +1,3 @@
+defaults:
+- realestate10k
+save_dir: data/infinite_staircase_nframes10800_nloops90_stepsize0p4_incline30_sigma1_differentviewingangle

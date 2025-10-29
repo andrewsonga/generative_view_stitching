@@ -1,0 +1,3 @@
+defaults:
+- realestate10k
+save_dir: data/impossible_staircase

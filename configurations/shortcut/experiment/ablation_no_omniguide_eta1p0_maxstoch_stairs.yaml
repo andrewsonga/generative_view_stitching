@@ -1,0 +1,12 @@
+name: ablation_no_omniguide_eta1p0_maxstoch_stairs
+
+experiment:
+  tasks: [validation]
+  validation:
+    batch_size: 4
+
+# override dataset parameters
+dataset:
+  frame_skip: 1
+  n_frames: 24
+  num_eval_videos: 40

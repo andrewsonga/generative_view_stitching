@@ -1,0 +1,12 @@
+name: ablation_no_omniguide_eta0p9_maxstoch_straight_line
+
+experiment:
+  tasks: [validation]
+  validation:
+    batch_size: 4
+
+# override dataset parameters
+dataset:
+  frame_skip: 5
+  n_frames: 48
+  num_eval_videos: 40

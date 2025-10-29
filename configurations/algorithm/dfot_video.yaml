@@ -1,0 +1,132 @@
+# Important: Be careful when modifying this file! The fields in file will be overridden by the dataset dependent config file in the `configurations/dataset_experiment` folder so consider making changes there instead! 
+
+
+defaults:
+  - base_pytorch_algo
+  - backbone: dit3d
+# dataset-dependent configurations
+x_shape: ${dataset.observation_shape}
+max_frames: ${dataset.max_frames}
+n_frames: ${dataset.n_frames}
+frame_skip: ${dataset.frame_skip}
+context_frames: ${dataset.context_length}
+latent: ${dataset.latent}
+data_mean: ${dataset.data_mean}
+data_std: ${dataset.data_std}
+external_cond_dim: ${dataset.external_cond_dim}
+external_cond_stack: ${dataset.external_cond_stack}
+external_cond_processing: ${dataset.external_cond_processing}
+# training hyperparameters
+compile: False
+weight_decay: 1e-3
+optimizer_beta: [0.9, 0.99]
+lr_scheduler:
+  name: constant_with_warmup
+  num_warmup_steps: 5000
+noise_level: random_independent
+uniform_future:
+  enabled: false
+fixed_context:
+  enabled: false
+  indices: null # defaults to context_frames
+  dropout: 0
+variable_context:
+  enabled: false
+  prob: 0
+  dropout: 0
+# sampling scheme
+chunk_size: -1
+scheduling_matrix: 
+  name: full_sequence
+  uncertainty_scale: null
+  repeat_factor: 1
+  update_where_noise_level_same: false
+fov_distance:
+  frustum_length: 2.0               # defines how the camera frustum extends from the camera center
+  overlap_threshold: 0.5            # determines the minimum overlap ratio between source and target frames for a (src, tgt) pair to be considered to be a spatial neighbor
+  n_samples: 500
+  fix_intrinsics: False
+loop_closure:
+  enabled: False
+
+diffusion:
+  minibatch_size: null              # minibatch size to split input batch into chunks to avoid OOM (should be less than batch_size * nfe * num_windows)
+  is_continuous: False
+  timesteps: 1000
+  beta_schedule: cosine
+  schedule_fn_kwargs:
+    shift: 1.0
+  use_causal_mask: False
+  clip_noise: 20.0
+  # training
+  objective: pred_v
+  loss_weighting:
+    strategy: fused_min_snr
+    snr_clip: 5.0
+    cum_snr_decay: 0.9
+  # sampling
+  sampling_timesteps: 50
+  ddim_sampling_eta: 0.0
+  max_stoch: false
+  gscale_adjust: false
+  # (For full sequence diffusion)
+  reconstruction_guidance: 0.0
+
+# vae
+vae:
+  pretrained_path: null
+  pretrained_kwargs: {}
+  use_fp16: True
+  batch_size: 2           # chunk size to split input batch into when compute latents with VAE to avoid OOM
+
+checkpoint:
+  reset_optimizer: False
+  strict: True
+
+# video generation tasks
+tasks:
+  prediction:
+    enabled: True
+    history_guidance:
+      name: conditional
+    keyframe_density: null
+    sliding_context_len: null
+    penrose_staircase: false
+    two_loops: false
+  interpolation:
+    enabled: False
+    history_guidance:
+      name: conditional
+    max_batch_size: null
+
+chunk_skips: [1]
+viz_denoising: false
+
+# logging
+logging:
+  plot_trajectory: False
+  deterministic: 0
+  loss_freq: 100
+  grad_norm_freq: 100
+  max_num_videos: 8
+  n_metrics_frames: null
+  metrics:
+    - fvd
+    - is
+    - fid
+    - lpips
+    - mse
+    - psnr
+    - ssim
+  metrics_batch_size: 16
+  sanity_generation: False # generate video samples during sanity check
+  raw_dir: null
+  loop_consistency:        # copy over from fov_distance 
+    frustum_length: ${algorithm.fov_distance.frustum_length}               # defines how the camera frustum extends from the camera center
+    overlap_threshold: ${algorithm.fov_distance.overlap_threshold}            # determines the minimum overlap ratio between source and target frames for a (src, tgt) pair to be considered to be a spatial neighbor
+    n_samples: ${algorithm.fov_distance.n_samples}
+    fix_intrinsics: ${algorithm.fov_distance.fix_intrinsics}
+    img_size: ${dataset.resolution}
+    max_tokens: ${dataset.max_frames}
+  temporal_consistency:
+    img_size: ${dataset.resolution}

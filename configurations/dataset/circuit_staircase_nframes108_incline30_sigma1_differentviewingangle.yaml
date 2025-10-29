@@ -1,0 +1,7 @@
+# Important: Be careful when modifying this file! 
+# The fields in file will be overridden by the dataset dependent config file in the `configurations/dataset_experiment` folder so consider making changes there instead! 
+
+defaults:
+  - realestate10k
+
+save_dir: data/circuit_staircase_nframes108_incline30_sigma1_differentviewingangle

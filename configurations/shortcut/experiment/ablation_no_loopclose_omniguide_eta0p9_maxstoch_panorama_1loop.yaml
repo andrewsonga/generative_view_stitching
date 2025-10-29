@@ -1,0 +1,11 @@
+name: ablation_no_loopclose_omniguide_eta0p9_maxstoch_panorama_1loop
+
+experiment:
+  tasks: [validation]
+  validation:
+    batch_size: 4
+
+dataset:
+  frame_skip: 1
+  n_frames: 24
+  num_eval_videos: 40

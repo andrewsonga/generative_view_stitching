@@ -1,0 +1,11 @@
+defaults:
+  - habitat_v_32
+
+augmentation:
+  frame_skip_increase: 0 # increase frame skip by this amount each subepoch
+  horizontal_flip_prob: 0.5 # probability of horizontally flipping the video
+  reverse_prob: 0 # probability of reversing the video
+  back_and_forth_prob: 0 # probability of playing the video back and forth
+rag:
+  impute_indices: [-1]
+  retrieval_window_end_frame_rel: 8

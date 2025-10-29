@@ -1,0 +1,19 @@
+name: ablation_loopclose_omniguide_eta0p9_maxstoch_panorama_2loop
+
+experiment:
+  tasks: [validation]
+  validation:
+    batch_size: 4
+
+dataset:
+  frame_skip: 1
+  n_frames: 48
+  num_eval_videos: 40
+
+algorithm:
+  loop_closure:
+    enabled: true
+  tasks:
+    prediction:
+      manual_window_indices: [[25,24,0,1,2,3,27,26],[29,28,4,5,6,7,31,30],[33,32,8,9,10,11,35,34],[37,36,12,13,14,15,39,38],[41,40,16,17,18,19,43,42],[45,44,20,21,22,23,47,46],[1,0,24,25,26,27,3,2],[5,4,28,29,30,31,7,6],[9,8,32,33,34,35,11,10],[13,12,36,37,38,39,15,14],[17,16,40,41,42,43,19,18],[21,20,44,45,46,47,23,22]]
+      repeat_manual_window_indices: 1

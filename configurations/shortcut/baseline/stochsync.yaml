@@ -1,0 +1,36 @@
+dataset:
+  fix_intrinsics: False
+  context_length: 0
+  max_frames: 8
+
+algorithm:
+  loop_closure:
+    enabled: false
+  backbone:
+    interpolate_factor: 1.0
+    use_fourier_noise_embedding: true   # from @diffusion/continuous
+  tasks:
+    prediction:
+      enabled: True
+      history_guidance:
+        name: vanilla
+        guidance_scale: 4.0
+        use_external_cond_guidance: True
+      timestep_max: 900
+      timestep_min: 270
+      warmup_steps: 2
+      ode_steps: 25
+      seam_removal_steps: 2
+      multistep_denoising: true
+      loop_closing: ${algorithm.loop_closure.enabled}
+    interpolation:
+      max_batch_size: 1
+  diffusion:
+    sampling_timesteps: 25
+    ddim_sampling_eta: 0.0
+    minibatch_size: 1
+    max_stoch: False
+    is_continuous: true      # from @diffusion/continuous
+    precond_scale: 0.125     # from @diffusion/continuous  # following EDM
+  fov_distance:
+    fix_intrinsics: ${dataset.fix_intrinsics}

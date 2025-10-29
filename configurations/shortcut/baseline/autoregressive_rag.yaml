@@ -1,0 +1,35 @@
+dataset:
+  fix_intrinsics: False
+  context_length: 0
+  max_frames: 8
+
+algorithm:
+  loop_closure:
+    enabled: True
+  fov_distance:
+    fix_intrinsics: ${dataset.fix_intrinsics}
+  rag:
+    impute_indices: [-1,-2,-3]
+  backbone:
+    interpolate_factor: 1.0
+    use_fourier_noise_embedding: true   # from @diffusion/continuous
+  tasks:
+    prediction:
+      keyframe_density: 1
+      history_guidance:
+        name: stabilized_vanilla
+        guidance_scale: 4.0
+        stabilization_level: 0.02
+        use_external_cond_guidance: true
+      sliding_context_len: 4
+    interpolation:
+      history_guidance:
+        name: vanilla
+        guidance_scale: 1.5
+      max_batch_size: 1
+  diffusion:
+    sampling_timesteps: 50
+    ddim_sampling_eta: 0.0
+    minibatch_size: 1
+    is_continuous: true      # from @diffusion/continuous
+    precond_scale: 0.125     # from @diffusion/continuous  # following EDM

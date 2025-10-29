@@ -1,0 +1,3 @@
+defaults:
+- realestate10k
+save_dir: data/updown_same_staircase_nframes108_stepsize0p1_incline30_sigma1_differentviewingangle

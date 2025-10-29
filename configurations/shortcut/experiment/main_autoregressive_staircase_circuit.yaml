@@ -1,0 +1,15 @@
+name: main_autoregressive_staircase_circuit
+
+experiment:
+  tasks: [validation]
+  validation:
+    batch_size: 1
+
+dataset:
+  frame_skip: 1
+  n_frames: 120
+  num_eval_videos: 40
+
+algorithm:
+  loop_closure:
+    enabled: true

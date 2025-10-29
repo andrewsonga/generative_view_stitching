@@ -1,0 +1,34 @@
+dataset:
+  fix_intrinsics: False
+  context_length: 0
+  max_frames: 8
+
+algorithm:
+  loop_closure:
+    enabled: False
+  fov_distance:
+    fix_intrinsics: ${dataset.fix_intrinsics}
+  backbone:
+    interpolate_factor: 1.0
+    use_fourier_noise_embedding: true   # from @diffusion/continuous
+  tasks:
+    prediction:
+      enabled: True
+      history_guidance:
+        guidance_scale: 2.0
+        name: vanilla
+        use_external_cond_guidance: True
+      chunk_sizes: [2, 4, 2]
+      manual_window_indices: null
+    interpolation:
+      max_batch_size: 1  
+  diffusion:
+    sampling_timesteps: 50
+    ddim_sampling_eta: 0.9
+    minibatch_size: 1
+    max_stoch: True
+    gscale_adjust: False
+    is_continuous: true      # from @diffusion/continuous
+    precond_scale: 0.125     # from @diffusion/continuous  # following EDM
+  scheduling_matrix:
+    repeat_factor: 1

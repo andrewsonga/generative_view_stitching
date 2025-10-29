@@ -1,0 +1,15 @@
+name: limitation_ours_re10k_mini_context1
+
+experiment:
+  tasks: [validation]
+  validation:
+    batch_size: 1
+
+dataset:
+  context_length: 1
+  frame_skip: 12
+  n_frames: 24
+  num_eval_videos: 10
+
+algorithm:
+  viz_denoising: true

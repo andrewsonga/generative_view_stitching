@@ -1,0 +1,3 @@
+defaults:
+- realestate10k
+save_dir: data/forward12_circulararc12_backward12_stepsize0p1_radius0p05

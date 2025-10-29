@@ -1,0 +1,3 @@
+defaults:
+- realestate10k
+save_dir: data/panorama_targetangle345p0_24frames_height1p5

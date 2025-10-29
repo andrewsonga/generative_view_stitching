@@ -1,0 +1,11 @@
+name: limitation_ours_forward_orbit_backward_no_loopclose
+
+experiment:
+  tasks: [validation]
+  validation:
+    batch_size: 1
+
+dataset:
+  frame_skip: 1
+  n_frames: 24
+  num_eval_videos: 10

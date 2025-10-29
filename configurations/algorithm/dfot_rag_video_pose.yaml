@@ -1,0 +1,9 @@
+# Important: Be careful when modifying this file! The fields in file will be overridden by the dataset dependent config file in the `configurations/dataset_experiment` folder so consider making changes there instead! 
+
+defaults:
+  - dfot_video_pose
+  - override backbone: u_vit3d_pose
+
+rag:
+  impute_indices: [-1]
+  retrieval_window_end_frame_rel: 8
