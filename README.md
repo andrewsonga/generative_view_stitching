@@ -86,7 +86,7 @@ We provide the [commands](configurations/shortcut/experiment/README.md) for repr
 ## 📝 Acknowledgements
 This repo is forked from [History-Guided Video Diffusion](https://github.com/kwsong0113/diffusion-forcing-transformer), which in turn is forked from [Boyuan Chen](https://boyuan.space/)'s research template [repo](https://github.com/buoyancy99/research-template). By its license, you must keep the above sentence in `README.md` and the `LICENSE` file to credit the author.
 
-This work was supported by the National Science Foundation under Grant No. 2211259, by the Singapore DSTA under DST00OECI20300823 (New Representations for Vision, 3D Self-Supervised Learning for Label-Efficient Vision), by the Intelligence Advanced Research Projects Activity (IARPA) via Department of Interior/Interior Business Center (DOI/IBC) under 140D0423C0075, by the Amazon Science Hub, by the MIT-Google Program for Computing Innovation, and by Sony Interactive Entertainment.
+This work was supported by the National Science Foundation under Grant No. 2211259, by the Singapore DSTA under DST00OECI20300823 (New Representations for Vision, 3D Self-Supervised Learning for Label-Efficient Vision), by the Intelligence Advanced Research Projects Activity (IARPA) via Department of Interior/Interior Business Center (DOI/IBC) under 140D0423C0075, by the Amazon Science Hub, by the MIT-Google Program for Computing Innovation, by Sony Interactive Entertainment, and by a 2025 MIT ORCD Seed Fund Compute Grant.
 
 ## 📌 Citation
 
