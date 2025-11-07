@@ -35,8 +35,8 @@ class MET3R(Metric):
 
         # placeholder value for when the overlap mask is empty
         if distance == "cosine":
-            self.fallback_value = 2
-            # self.fallback_value = 1
+            #self.fallback_value = 2
+            self.fallback_value = 1
         elif distance == "lpips":
             self.fallback_value = 1.0
         elif distance == "mse" or distance == "psnr":
