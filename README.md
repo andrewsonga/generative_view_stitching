@@ -20,6 +20,10 @@ This is the official repository for the paper [**_Generative View Stitching_**](
 
 ![cover_figure](cover_figure.png)
 
+## Previous Bugs
+
+Before a recent [commit](https://github.com/andrewsonga/generative_view_stitching/commit/fcac2f4ef99d42b1a03499741f96310588e2f0cf) there was a bug in the code that overestimated the MET3R cosine value. **Please pull the latest version of the codebase to replicate the quantitative results in the paper**.
+
 ## 🚀 Quick Start
 
 ### Setup
